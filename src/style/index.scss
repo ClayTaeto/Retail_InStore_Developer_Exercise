@@ -1,0 +1,54 @@
+//Colors
+$primary-color: #303030;
+$secondary-color: #dedede;
+$link-color: #2d7dc1;
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}    
+
+.tab-slide-component {
+    
+    .tab-cursor {
+        border-bottom: 2px solid $primary-color;
+        width: 40px;
+        position: absolute;
+        bottom: 0; //get it to line up with the gray horizontal bar
+		transition: left 0.5s ease, width 0.2s; //most of the animation is handled through this transition property.
+		//the rest is in the js, telling the cursor where to go
+    }
+    .tab-section {
+        position: relative;
+    }
+    .flex-container {
+        border-bottom: solid 2px $secondary-color;
+        & > div { //these are the tab labels
+            margin: 8px;       
+            padding-top: 50px;             
+            font-size: 16px;
+            color: $secondary-color;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-end;
+            flex-grow: 1; //grow to fill the width of the container
+            &:hover{
+                color: $link-color;
+            }
+        }
+        & div:focus {
+            color: $link-color;
+        }
+        & .active {
+            color: $primary-color; //highlight when the tab is active
+        }
+        &.hidefocus div:focus {            
+            outline: none;            
+        }
+        
+    }  
+}
